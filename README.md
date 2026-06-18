@@ -16,16 +16,20 @@ An end-to-end user behavior tracking and analytics application. The system captu
 
 Below are screenshots of the live, production-deployed application:
 
-### React Dashboard (Vercel)
-![Vercel Live Dashboard](./assets/prod_vercel_dashboard.png)
+### React Dashboard & Heatmap Visualization (Vercel)
+| Analytics Dashboard Panel | Click Coordinates Heatmap |
+|---|---|
+| ![Vercel Live Dashboard](./assets/Screenshot%20(437).png) | ![Home Heatmap Overlay](./assets/Screenshot%20(438).png) |
 
 ### Multi-page Demo Site (Render)
 | Home Page | Pricing Page | About Page |
 |---|---|---|
-| ![Live Home](./assets/prod_demo_home.png) | ![Live Pricing](./assets/prod_demo_pricing.png) | ![Live About](./assets/prod_demo_about.png) |
+| ![Live Home](./assets/Screenshot%20(439).png) | ![Live Pricing](./assets/Screenshot%20(440).png) | ![Live About](./assets/Screenshot%20(441).png) |
 
-### Render Backend API Server
-![Render Live Backend](./assets/prod_render_backend.png)
+### Render Backend API & MongoDB Atlas Database
+| Render API Status Page | MongoDB Atlas Data Explorer |
+|---|---|
+| ![Render API Status](./assets/Screenshot%20(442).png) | ![MongoDB Atlas Live Data](./assets/Screenshot%20(443).png) |
 
 ---
 
@@ -107,16 +111,7 @@ Once running, access:
 
 ---
 
-## 🖼️ Visual Walkthrough
-
-Below are the dashboard states capturing the platform interface and click coordinate heatmap overlays:
-
-* **Video Walkthrough Demo**: Refer to [walkthrough.md](./walkthrough.md) for the full step-by-step video walkthrough of all pages.
-
-### Dashboard & Heatmap Visualizations
-| Home Page Heatmap | Pricing Page Heatmap | About Page Heatmap |
-|---|---|---|
-| ![Home Heatmap](./assets/dashboard_heatmap_home.png) | ![Pricing Heatmap](./assets/dashboard_heatmap_pricing.png) | ![About Heatmap](./assets/dashboard_heatmap_about.png) |
+* **Video Walkthrough Details**: For step-by-step walkthrough documentation and detailed diagnostics, please refer to [walkthrough.md](./walkthrough.md).
 
 ---
 

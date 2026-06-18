@@ -6,10 +6,20 @@ The walkthrough records a realistic software demonstration showing real-time eve
 
 ---
 
-## 📹 Professional Product Walkthrough Video
-The walkthrough video has been fully recorded, capturing the cursor interactions and UI transitions at a professional software developer pace.
+## 🖼️ Production Flow Screenshots
+Below are screenshots capturing the complete production flow of the analytics tracking platform:
 
-![Casual Funnel Product Walkthrough](./assets/walkthrough.webp)
+### 1. Tracked Demo Website (Render)
+![Live Home](./assets/Screenshot%20(439).png)
+
+### 2. Live Analytics Dashboard (Vercel)
+![Vercel Live Dashboard](./assets/Screenshot%20(437).png)
+
+### 3. Click Coordinates Heatmap Visualization
+![Home Heatmap Overlay](./assets/Screenshot%20(438).png)
+
+### 4. MongoDB Atlas Live Data Verification
+![MongoDB Atlas Live Data](./assets/Screenshot%20(443).png)
 
 ---
 
