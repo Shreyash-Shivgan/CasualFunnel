@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casual Funnel - Database Verification</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+    :root {
+      --bg: #0f172a;
+      --bg-alt: #1e293b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --primary: #3b82f6;
+      --primary-hover: #2563eb;
+      --border: #334155;
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+      
+      --json-key: #818cf8;
+      --json-val: #34d399;
+      --json-num: #fbbf24;
+      --json-bool: #f43f5e;
+      --json-null: #64748b;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.5;
+    }
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 0.85rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--bg-alt);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .nav-badge {
+      font-size: 0.8rem;
+      font-weight: 600;
+      background-color: rgba(59, 130, 246, 0.15);
+      color: var(--primary);
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+    .title-area {
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem;
+    }
+    .title-area h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      margin: 0 0 0.5rem 0;
+      letter-spacing: -0.025em;
+    }
+    .title-area p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin: 0;
+    }
+    .db-container {
+      background-color: #0b0f19;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .db-header {
+      background-color: #111827;
+      padding: 0.75rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .db-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      color: #34d399;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .db-title::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #34d399;
+      box-shadow: 0 0 8px #34d399;
+    }
+    .session-info {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .db-content {
+      padding: 1.5rem;
+      margin: 0;
+      overflow-x: auto;
+      max-height: 550px;
+      overflow-y: auto;
+    }
+    pre {
+      margin: 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+    .json-key {
+      color: var(--json-key);
+    }
+    .json-value {
+      color: var(--json-val);
+    }
+    .json-number {
+      color: var(--json-num);
+    }
+    .json-boolean {
+      color: var(--json-bool);
+    }
+    .json-null {
+      color: var(--json-null);
+    }
+    .highlighted-key {
+      background-color: rgba(59, 130, 246, 0.15);
+      border-radius: 3px;
+      padding: 0 4px;
+      border-left: 2px solid #3b82f6;
+      font-weight: 500;
+    }
+    .btn {
+      background-color: var(--primary);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      border: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.15s;
+    }
+    .btn:hover {
+      background-color: var(--primary-hover);
+    }
+    .video-overlay-banner {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(15, 23, 42, 0.95);
+      color: #f8fafc;
+      padding: 10px 20px;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      pointer-events: none;
+    }
+    .video-overlay-banner::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #3b82f6;
+      box-shadow: 0 0 8px #3b82f6;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Casual Funnel</div>
+    <div class="nav-badge">MongoDB Atlas Verification</div>
+  </header>
+  <div class="container">
+    <div class="title-area">
+      <h1>MongoDB Atlas Storage</h1>
+      <p>Verifying event records written in real-time to cluster0.egkq0pw.mongodb.net</p>
+    </div>
+
+    <div class="db-container">
+      <div class="db-header">
+        <div class="db-title">cluster0.events.find({ session_id })</div>
+        <div class="session-info" id="session-display">Session: loading...</div>
+        <button class="btn" id="btn-refresh">Refresh Records</button>
+      </div>
+      <div class="db-content">
+        <pre><code id="json-output">Fetching documents...</code></pre>
+      </div>
+    </div>
+  </div>
+  <div class="video-overlay-banner">Real-time event storage</div>
+
+  <script>
+    const sessionId = localStorage.getItem('casual_analytics_session_id');
+    const sessionDisplay = document.getElementById('session-display');
+    const jsonOutput = document.getElementById('json-output');
+    const btnRefresh = document.getElementById('btn-refresh');
+
+    if (sessionId) {
+      sessionDisplay.textContent = `Session: ${sessionId}`;
+    } else {
+      sessionDisplay.textContent = `Session: none found`;
+      jsonOutput.innerHTML = `<span class="json-boolean">No active session found in localStorage. Visit the demo site first.</span>`;
+    }
+
+    function syntaxHighlight(json) {
+      if (typeof json !== 'string') {
+        json = JSON.stringify(json, undefined, 2);
+      }
+      json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+        let cls = 'json-number';
+        if (/^"/.test(match)) {
+          if (/:$/.test(match)) {
+            const key = match.replace(/"/g, '').replace(':', '').trim();
+            const importantKeys = ['session_id', 'event_type', 'page_url', 'timestamp', 'click_coordinates', 'x', 'y', 'x_pct', 'y_pct'];
+            if (importantKeys.includes(key)) {
+              cls = 'json-key highlighted-key';
+            } else {
+              cls = 'json-key';
+            }
+          } else {
+            cls = 'json-value';
+          }
+        } else if (/true|false/.test(match)) {
+          cls = 'json-boolean';
+        } else if (/null/.test(match)) {
+          cls = 'json-null';
+        }
+        
+        if (cls.indexOf('json-key') >= 0) {
+          return '<span class="' + cls + '">' + match.substring(0, match.length - 1) + '</span>:';
+        }
+        return '<span class="' + cls + '">' + match + '</span>';
+      });
+    }
+
+    async function fetchEvents() {
+      if (!sessionId) return;
+      jsonOutput.textContent = 'Querying database...';
+      try {
+        const res = await fetch(`/api/sessions/${sessionId}/events`);
+        if (!res.ok) {
+          throw new Error(`Server returned status ${res.status}`);
+        }
+        const responseData = await res.json();
+        const events = responseData.data || [];
+        if (events.length === 0) {
+          jsonOutput.innerHTML = `<div class="empty-state">No events recorded for this session yet. Page views and clicks will appear here once tracked.</div>`;
+          return;
+        }
+
+        let htmlContent = '';
+        events.forEach((doc, idx) => {
+          // Format each document and highlight key fields
+          const highlighted = syntaxHighlight(doc);
+          htmlContent += `// Document ${idx + 1}\n${highlighted}\n\n`;
+        });
+
+        jsonOutput.innerHTML = htmlContent;
+      } catch (err) {
+        jsonOutput.innerHTML = `<span class="json-boolean">Error fetching database records: ${err.message}</span>`;
+      }
+    }
+
+    btnRefresh.addEventListener('click', fetchEvents);
+    window.addEventListener('DOMContentLoaded', fetchEvents);
+  </script>
+</body>
+</html>

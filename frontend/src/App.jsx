@@ -30,6 +30,9 @@ export default function App() {
   const [heatmapClicks, setHeatmapClicks] = useState([]);
   const [loadingHeatmap, setLoadingHeatmap] = useState(false);
 
+  // Overlay banner state
+  const [overlayText, setOverlayText] = useState('Session Analytics');
+
   // Fetch all dashboard stats
   const fetchStats = async () => {
     try {
@@ -101,6 +104,19 @@ export default function App() {
   useEffect(() => {
     fetchStats();
     fetchSessions();
+  }, []);
+
+  // Scroll listener to toggle overlay text
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setOverlayText('Click Heatmap Visualization');
+      } else {
+        setOverlayText('Session Analytics');
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Fetch session events when active session changes
@@ -413,6 +429,7 @@ export default function App() {
           </div>
         </div>
       </main>
+      <div className="video-overlay-banner">{overlayText}</div>
     </div>
   );
 }

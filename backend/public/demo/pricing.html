@@ -172,6 +172,35 @@
       border-top: 1px solid var(--border);
       margin-top: 5rem;
     }
+    .video-overlay-banner {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(15, 23, 42, 0.95);
+      color: #f8fafc;
+      padding: 10px 20px;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      pointer-events: none;
+    }
+    .video-overlay-banner::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #2563eb;
+      box-shadow: 0 0 8px #2563eb;
+    }
   </style>
   <script src="/tracker.js"></script>
 </head>
@@ -231,6 +260,7 @@
       </div>
     </div>
   </div>
+  <div class="video-overlay-banner">Tracking page views and click events in real time</div>
   <footer>
     &copy; 2026 Casual Funnel. All rights reserved.
   </footer>
