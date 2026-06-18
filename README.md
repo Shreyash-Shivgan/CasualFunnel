@@ -12,6 +12,23 @@ An end-to-end user behavior tracking and analytics application. The system captu
 
 ---
 
+## 🌐 Live Production Screenshots
+
+Below are screenshots of the live, production-deployed application:
+
+### React Dashboard (Vercel)
+![Vercel Live Dashboard](./assets/prod_vercel_dashboard.png)
+
+### Multi-page Demo Site (Render)
+| Home Page | Pricing Page | About Page |
+|---|---|---|
+| ![Live Home](./assets/prod_demo_home.png) | ![Live Pricing](./assets/prod_demo_pricing.png) | ![Live About](./assets/prod_demo_about.png) |
+
+### Render Backend API Server
+![Render Live Backend](./assets/prod_render_backend.png)
+
+---
+
 ## Key Features
 
 1. **Standalone Tracker (`tracker/tracker.js`)**:
