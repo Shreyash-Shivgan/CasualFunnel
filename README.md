@@ -4,6 +4,14 @@ An end-to-end user behavior tracking and analytics application. The system captu
 
 ---
 
+## 🚀 Live Deployments
+
+* **Analytics Dashboard Panel (Vercel)**: [https://casual-funnel-sigma.vercel.app/](https://casual-funnel-sigma.vercel.app/)
+* **Tracked Demo Website (Render)**: [https://casualfunnel-h1ph.onrender.com/demo/](https://casualfunnel-h1ph.onrender.com/demo/)
+* **Backend API Server (Render)**: [https://casualfunnel-h1ph.onrender.com/](https://casualfunnel-h1ph.onrender.com/)
+
+---
+
 ## Key Features
 
 1. **Standalone Tracker (`tracker/tracker.js`)**:
@@ -37,15 +45,13 @@ An end-to-end user behavior tracking and analytics application. The system captu
 
 ### 1. Prerequisites
 * [Node.js](https://nodejs.org/) (v16+ recommended)
-* [MongoDB](https://www.mongodb.com/) running locally on default port `27017` (configured via backend `.env` variables).
+* [MongoDB](https://www.mongodb.com/) running locally or via MongoDB Atlas.
   > [!NOTE]
-  > MongoDB is the required primary database for production runs. If MongoDB is not detected during start, the application prints a warning and runs on a local in-memory fallback for zero-config testing.
+  > MongoDB is the required primary database. In production (`NODE_ENV=production`), the application strictly connects to MongoDB Atlas using `MONGO_URI` and will exit on failure. In local development, if `MONGO_URI` is unset, it falls back to an in-memory database proxy for zero-config testing.
 
-### 2. Quick Start Running Script
+### 2. Local Development
 
-To install all dependencies (for Root, Backend, and Frontend) and start the servers:
-
-1. **Install all dependencies**:
+1. **Install all dependencies** (Root, Backend, and Frontend):
    ```bash
    npm run install-all
    ```
@@ -58,6 +64,27 @@ To install all dependencies (for Root, Backend, and Frontend) and start the serv
 Once running, access:
 * **Tracked Demo Website**: [http://localhost:5000/demo/](http://localhost:5000/demo/)
 * **Analytics Dashboard Panel**: [http://localhost:5173/](http://localhost:5173/)
+
+---
+
+## 🌐 Production Deployment Configurations
+
+### Backend (Render Deployment)
+* **Root Directory**: `backend`
+* **Runtime**: `Node`
+* **Build Command**: `npm install`
+* **Start Command**: `node server.js`
+* **Required Environment Variables**:
+  * `MONGO_URI`: Your MongoDB Atlas Connection String
+  * `NODE_ENV`: `production`
+
+### Frontend (Vercel Deployment)
+* **Framework Preset**: `Vite` (automatically detected)
+* **Root Directory**: `frontend`
+* **Build Command**: `npm run build`
+* **Output Directory**: `dist`
+* **Required Environment Variable**:
+  * `VITE_API_BASE`: `<Your Render Backend URL>/api` (e.g. `https://casualfunnel-h1ph.onrender.com/api`)
 
 ---
 
