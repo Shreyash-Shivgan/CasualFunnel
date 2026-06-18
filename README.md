@@ -109,12 +109,6 @@ Once running, access:
 
 ---
 
----
-
-* **Video Walkthrough Details**: For step-by-step walkthrough documentation and detailed diagnostics, please refer to [walkthrough.md](./walkthrough.md).
-
----
-
 ## Tech Stack
 * **Frontend Dashboard**: React, Vite, Axios, Lucide Icons, Custom Vanilla CSS
 * **Tracking Script**: Vanilla JS (using standard Web APIs)
