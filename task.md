@@ -1,0 +1,42 @@
+# Implementation Tasks: User Analytics Application
+
+- `[x]` Step 1: Initialize user analytics application structure & Git first commit
+  - `[x]` Set up root `.gitignore`
+  - `[x]` Set up root `package.json` for concurrently running backend & frontend
+  - `[x]` Perform git init, git add, and git commit `"Initialize user analytics application structure"`
+- `[x]` Step 2: Implement tracking script & static multi-page demo website
+  - `[x]` Create standalone tracking script `tracker/tracker.js` using `localStorage` and capturing raw + percent coordinates
+  - `[x]` Create `backend/public/demo/` with `index.html` (Home), `pricing.html` (Pricing), and `about.html` (About)
+  - `[x]` Integrate the tracker script in all three demo HTML pages
+  - `[x]` Commit step 2: `"Implement tracking script and static multi-page demo website"`
+- `[x]` Step 3: Implement backend database config, models, and controllers
+  - `[x]` Set up backend `package.json` with Express, Mongoose, dotenv, cors
+  - `[x]` Set up database connection `backend/config/db.js`
+  - `[x]` Set up Event schema `backend/models/Event.js` with raw & percentage coordinates
+  - `[x]` Set up controllers:
+    - `backend/controllers/eventController.js`
+    - `backend/controllers/sessionController.js`
+    - `backend/controllers/heatmapController.js`
+  - `[x]` Set up routes `backend/routes/analyticsRoutes.js` (including stats route)
+  - `[x]` Commit step 3: `"Implement backend: db connection, Event schema, and split controllers"`
+- `[x]` Step 4: Implement Express server and public routing
+  - `[x]` Set up backend `backend/server.js` to serve static demo files, public tracker script, and route API calls
+  - `[x]` Set up `.env.example` and local `.env` files
+  - `[x]` Commit step 4: `"Implement Express server and public routing"`
+- `[x]` Step 5: Implement React frontend dashboard and heatmap visualization
+  - `[x]` Initialize frontend Vite React template in `frontend/` directory using `--no-interactive`
+  - `[x]` Install frontend package dependencies (axios, etc.)
+  - `[x]` Set up frontend CSS styling in `frontend/src/index.css` for a premium dark-theme analytics layout
+  - `[x]` Implement `frontend/src/App.jsx` with Stats, Sessions List, Session Journey, and Heatmap visualization
+  - `[x]` Commit step 5: `"Implement React frontend dashboard and heatmap visualization"`
+- `[x]` Step 6: Create README documentation and final testing/git status verification
+  - `[x]` Create `README.md` at root level
+  - `[x]` Run end-to-end manual verification (checking tracker data generation and heatmap overlay)
+  - `[x]` Create walkthrough report in `walkthrough.md`
+  - `[x]` Finalize git state and confirm everything compiles correctly
+  - `[x]` Commit step 6: `"Add README documentation and finalize setup"`
+- `[x]` Step 7: Configure and verify Vercel and Render deployments
+  - `[x]` Make API base URL dynamic in `frontend/src/App.jsx`
+  - `[x]` Create `frontend/vercel.json` for Vercel SPA routing
+  - `[x]` Verify local Vite build compiles correctly
+  - `[x]` Commit and push changes to remote GitHub repository
