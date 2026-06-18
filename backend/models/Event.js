@@ -155,7 +155,7 @@ class MockEvent {
 // Target must be RealModel (a constructor function) so EventProxy is constructable.
 const EventProxy = new Proxy(RealModel, {
   get(target, prop) {
-    if (global.useMockDb) {
+    if (global.useMockDb && process.env.NODE_ENV !== 'production') {
       if (prop === 'prototype') return MockEvent.prototype;
       return MockEvent[prop];
     } else {
@@ -164,7 +164,7 @@ const EventProxy = new Proxy(RealModel, {
     }
   },
   construct(target, args) {
-    if (global.useMockDb) {
+    if (global.useMockDb && process.env.NODE_ENV !== 'production') {
       return new MockEvent(...args);
     } else {
       return new RealModel(...args);
