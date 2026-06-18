@@ -9,7 +9,7 @@ The walkthrough records a realistic software demonstration showing real-time eve
 ## 📹 Professional Product Walkthrough Video
 The walkthrough video has been fully recorded, capturing the cursor interactions and UI transitions at a professional software developer pace.
 
-![Casual Funnel Product Walkthrough](file:///C:/Users/shrey/.gemini/antigravity-ide/brain/fc3137d6-7d29-411b-83b4-64221cc9c342/walkthrough_final_1781767981026.webp)
+![Casual Funnel Product Walkthrough](./assets/walkthrough.webp)
 
 ---
 

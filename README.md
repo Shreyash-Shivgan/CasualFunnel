@@ -88,6 +88,21 @@ Once running, access:
 
 ---
 
+---
+
+## 🖼️ Visual Walkthrough
+
+Below are the dashboard states capturing the platform interface and click coordinate heatmap overlays:
+
+* **Video Walkthrough Demo**: Refer to [walkthrough.md](./walkthrough.md) for the full step-by-step video walkthrough of all pages.
+
+### Dashboard & Heatmap Visualizations
+| Home Page Heatmap | Pricing Page Heatmap | About Page Heatmap |
+|---|---|---|
+| ![Home Heatmap](./assets/dashboard_heatmap_home.png) | ![Pricing Heatmap](./assets/dashboard_heatmap_pricing.png) | ![About Heatmap](./assets/dashboard_heatmap_about.png) |
+
+---
+
 ## Tech Stack
 * **Frontend Dashboard**: React, Vite, Axios, Lucide Icons, Custom Vanilla CSS
 * **Tracking Script**: Vanilla JS (using standard Web APIs)
