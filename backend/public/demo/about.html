@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casual Funnel - About</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    :root {
+      --bg: #ffffff;
+      --bg-alt: #f8fafc;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --card-bg: #ffffff;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.5;
+    }
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 0.85rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--bg);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: color 0.15s;
+    }
+    nav a:hover {
+      color: var(--primary);
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    .section {
+      margin-bottom: 3.5rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.025em;
+    }
+    h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    p {
+      color: var(--text-muted);
+      line-height: 1.75;
+      font-size: 1.05rem;
+      margin-bottom: 1.5rem;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .team-member {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: border-color 0.15s;
+    }
+    .team-member:hover {
+      border-color: #94a3b8;
+    }
+    .team-member h4 {
+      margin: 0.5rem 0 0.25rem 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .team-member p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .cta-box {
+      background-color: var(--bg-alt);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+      border-radius: 8px;
+      text-align: center;
+      margin-top: 4rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .cta-box h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+    .cta-box p {
+      font-size: 0.95rem;
+      max-width: 500px;
+      margin: 0 auto 1.5rem;
+    }
+    .btn {
+      background-color: var(--primary);
+      color: white;
+      padding: 0.65rem 1.25rem;
+      border-radius: 6px;
+      border: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.15s;
+      box-shadow: var(--shadow-sm);
+    }
+    .btn:hover {
+      background-color: var(--primary-hover);
+    }
+    footer {
+      text-align: center;
+      padding: 2.5rem;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      border-top: 1px solid var(--border);
+      margin-top: 5rem;
+    }
+  </style>
+  <script src="/tracker.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo">Casual Funnel</div>
+    <nav>
+      <a href="/demo/">Home</a>
+      <a href="/demo/pricing.html">Pricing</a>
+      <a href="/demo/about.html">About</a>
+    </nav>
+  </header>
+  <div class="container">
+    <div class="section">
+      <h1>Our Mission</h1>
+      <p>At Casual Funnel, we build tools that empower product, growth, and engineering teams to analyze user journeys, track session logs, and visualize behavior with heatmaps. We believe that tracking should be lightweight, transparent, and geared to optimize user experience.</p>
+    </div>
+
+    <div class="section">
+      <h2>The Team</h2>
+      <div class="team-grid">
+        <div class="team-member" id="team-founder" style="max-width: 300px; margin: 0 auto;">
+          <div style="width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); margin: 0 auto 1rem;"></div>
+          <h4>Abhimanu Kumar</h4>
+          <p>Co-Founder</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <h3>Have Questions?</h3>
+      <p>Our sales and support teams are always available to help configure tracking, explain visualizations, or scale your account.</p>
+      <button class="btn" id="btn-contact-us">Get in Touch</button>
+    </div>
+  </div>
+  <footer>
+    &copy; 2026 Casual Funnel. All rights reserved.
+  </footer>
+</body>
+</html>
